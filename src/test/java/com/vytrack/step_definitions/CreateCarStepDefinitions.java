@@ -45,9 +45,9 @@ public class CreateCarStepDefinitions {
         //to get all keys and values one by one
         dataTable.forEach((key, value) -> System.out.println("Key: " + key + ", value: " + value));
 
-//        for(Map.Entry<String, String> entry: dataTable.entrySet()){
-//            System.out.println("Key: " + entry.getKey() + ", value: "+entry.getValue());
-//        }
+        for(Map.Entry<String, String> entry: dataTable.entrySet()){
+           System.out.println("Key: " + entry.getKey() + ", value: "+entry.getValue());
+       }
 
         System.out.println("License plate: " + dataTable.get("License Plate"));
         System.out.println("Model year: " + dataTable.get("Model Year"));

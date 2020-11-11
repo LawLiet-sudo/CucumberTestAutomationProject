@@ -7,8 +7,8 @@ Feature: As user, I want to be able to create new cars
     And user navigates to "Fleet" and "Vehicles"
     And user clicks on create car button
     When user adds new vehicle information
-    |Licence Plate| SDET |
-    | Model Year  | 2021 |
+      | Licence Plate | SDET |
+      | Model Year    | 2021 |
 
     And user clicks on save and close button
 
@@ -24,9 +24,9 @@ Feature: As user, I want to be able to create new cars
     And user clicks on save and close button
     Examples: auto test data
       | license plate | model year |
-      | Azamat       | 2020       |
-      | Law            | 2021       |
-      | Lite       | 2030       |
-      | Esida          | 1999       |
+      | Azamat        | 2020       |
+      | Law           | 2021       |
+      | Lite          | 2030       |
+      | Esida         | 1999       |
 
 

@@ -3,9 +3,13 @@ package com.vytrack.utils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
-import java.util.concurrent.TimeUnit;
+import java.net.URL;
+
 
 public class Driver {
 
@@ -25,6 +29,19 @@ public class Driver {
                     WebDriverManager.firefoxdriver().setup();
                     driver = new FirefoxDriver();
                     break;
+
+                case "remote-chrome":
+                    try {
+                          ChromeOptions chromeOptions = new ChromeOptions();
+
+                        URL gridUrl = new URL("http://54.161.156.5:4444/grid/wd/hub");
+
+                        driver = new RemoteWebDriver(gridUrl, chromeOptions);
+                    }catch(Exception e){
+                        e.printStackTrace();
+                    }
+                    break;
+
                 default:
                     throw new RuntimeException("No such a browser yet!");
             }
