@@ -16,8 +16,10 @@ public class Driver {
 
 
     private static WebDriver driver;
+
     private Driver() {
     }
+
     public static WebDriver getDriver() {
         if (driver == null) {
             String browser = ConfigurationReader.getProperty("browser");
@@ -45,15 +47,22 @@ public class Driver {
 //                    ChromeOptions chromeOptions = new ChromeOptions();
                         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
                         desiredCapabilities.setBrowserName("chrome");
-
-                        URL gridUrl = new URL("http://54.161.156.5:4444/grid/wd/hub");
-
+                        URL gridUrl = new URL("http://54.161.156.5:4444/wd/hub");
                         driver = new RemoteWebDriver(gridUrl, desiredCapabilities);
-                    }catch(Exception e){
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
                     break;
-
+                case "remote-firefox":
+                    try {
+                        DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+                        desiredCapabilities.setBrowserName("firefox");
+                        URL gridUrl = new URL("http://54.161.156.5:4444/wd/hub");
+                        driver = new RemoteWebDriver(gridUrl, desiredCapabilities);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    break;
                 default:
                     throw new RuntimeException("No such a browser yet!");
             }
@@ -66,7 +75,6 @@ public class Driver {
             driver.quit();
             driver = null;
         }
-
     }
 
 }
