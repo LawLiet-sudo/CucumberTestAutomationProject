@@ -46,14 +46,15 @@ public abstract class BasePage {
 
         //wait until loader mask disappears
         wait.until(ExpectedConditions.invisibilityOfAllElements(loaderMask));
-        BrowserUtils.wait(3);
 
 
-
-
+            BrowserUtils.wait(2);
         //wait for presence and ability co click on element
-        WebElement tabElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(tabXpath)));
+        WebElement tabElement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(tabXpath)));
+        BrowserUtils.wait(2);
         wait.until(ExpectedConditions.elementToBeClickable(tabElement)).click();
+
+        BrowserUtils.wait(2);
 
         WebElement moduleElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(moduleXpath)));
         wait.until(ExpectedConditions.elementToBeClickable(moduleElement)).click();
@@ -61,7 +62,7 @@ public abstract class BasePage {
         //wait until loader mask disappears
         wait.until(ExpectedConditions.invisibilityOfAllElements(loaderMask));
 
-        BrowserUtils.wait(3);
+        BrowserUtils.wait(2);
 
     }
 

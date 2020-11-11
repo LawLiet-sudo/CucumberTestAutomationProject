@@ -27,14 +27,13 @@ public class BrowserUtils {
     }
 
     public static void enterText(WebElement element, String text){
-        wait.until(ExpectedConditions.elementToBeClickable(element));
+        wait.until(ExpectedConditions.visibilityOf(element));
         element.clear();
         element.sendKeys(text);
-        wait.until(ExpectedConditions.attributeToBe(element, "value", text));
+//        wait.until(ExpectedConditions.attributeToBe(element, "value", text));
+        BrowserUtils.wait(1);
         System.out.println("Entering text: " + text);
     }
-
-
 
     /**
      * For instance, selenium webdriver is trying to enter the text:
