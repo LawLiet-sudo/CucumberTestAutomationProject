@@ -1,6 +1,7 @@
 package com.vytrack.step_definitions;
 
 import com.vytrack.pages.CreateCarPage;
+import com.vytrack.utils.BrowserUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 
@@ -13,6 +14,7 @@ public class CreateCarStepDefinitions {
 
         @Given("user clicks on create car button")
         public void user_clicks_on_create_car_button() {
+            BrowserUtils.wait(1);
             createCarPage.clickOnCreateCar();
         }
 

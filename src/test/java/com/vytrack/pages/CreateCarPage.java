@@ -20,6 +20,7 @@ public class CreateCarPage extends BasePage{
 
     public void clickOnCreateCar() {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 20);
+        BrowserUtils.wait(1);
         wait.until(ExpectedConditions.elementToBeClickable(createCarBtn)).click();
         System.out.println("Clicking on 'Create car' button");
     }
